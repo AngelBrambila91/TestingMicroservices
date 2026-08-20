@@ -8,14 +8,14 @@ public class GoogleRouteServices
         HttpClient httpClient = new();
         httpClient.DefaultRequestHeaders.Add("X-Goog-Api-Key", apiKey);
         httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
-        httpClient.DefaultRequestHeaders.Add("X-Gog-FieldMask", "routes.duration,routes.distanceMeters");
+        httpClient.DefaultRequestHeaders.Add("X-Goog-FieldMask", "routes.duration,routes.distanceMeters");
 
         var routeRequest = new RouteRequest(
-              new Origin(addresses.OriginAddress)
-              , new Destination(addresses.DestinationAddress)
-              , travelMode: "DRIVE", routingPreference: "TRAFFIC_AWARE", computeAlternativeRoutes: true
-              , new Routemodifiers(avoidTolls: false, avoidHighways: false, avoidFerries: false)
-              , languageCode: "en-US", units: "UNITS_UNSPECIFIED");
+                      new Origin(addresses.OriginAddress)
+                      , new Destination(addresses.DestinationAddress)
+                      , travelMode: "DRIVE", routingPreference: "TRAFFIC_AWARE", computeAlternativeRoutes: true
+                      , new Routemodifiers(avoidTolls: false, avoidHighways: false, avoidFerries: false)
+                      , languageCode: "en-US", units: "UNITS_UNSPECIFIED");
 
         HttpResponseMessage response = await httpClient.PostAsJsonAsync(apiUrl, routeRequest);
 

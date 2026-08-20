@@ -21,7 +21,7 @@ app.MapPost("/getdistanceinfo", (Addresses addresses, GoogleRouteServices google
               {
               var apiUrl = config["googleRoutesApi:apiUrl"]
               ?? throw new InvalidOperationException("URL key, googleRouteApiUrl, not found.");
-              var apiKey = config["googleRoutesApi:apiKey"]
+              var apiKey = config["Google:MapsApiKey"]
               ?? throw new InvalidOperationException("API key, googleRouteApiKey, not found in user secrets.");
             
             
